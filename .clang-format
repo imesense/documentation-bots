@@ -1,0 +1,12 @@
+BasedOnStyle: Google
+DerivePointerAlignment: false
+PointerAlignment: Left
+
+AccessModifierOffset: -2
+AlignAfterOpenBracket: AlwaysBreak
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+BinPackArguments: false
+BinPackParameters: false
+ConstructorInitializerIndentWidth: 2
+ContinuationIndentWidth: 2
