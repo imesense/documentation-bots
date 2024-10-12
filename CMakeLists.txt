@@ -34,4 +34,7 @@ endif()
 add_executable(${PROJECT_NAME} "tcp_full_duplex_service.cpp")
 target_link_libraries(${PROJECT_NAME} userver::core)
 
+add_executable(${PROJECT_NAME} "bot.cc")
+target_link_libraries(${PROJECT_NAME})
+
 userver_setup_environment()
