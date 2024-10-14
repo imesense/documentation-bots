@@ -31,10 +31,10 @@ if(NOT userver_FOUND)
     endif()
 endif()
 
-add_executable(${PROJECT_NAME} "tcp_full_duplex_service.cpp")
+add_executable(${PROJECT_NAME} "tcp_full_duplex_service.cpp") # TODO
 target_link_libraries(${PROJECT_NAME} userver::core)
 
-add_executable(${PROJECT_NAME} "bot.cc")
+add_executable(${PROJECT_NAME} "bot.cc") # TODO
 target_link_libraries(${PROJECT_NAME})
 
 userver_setup_environment()
