@@ -2,3 +2,9 @@
 
 # Build results
 build*/
+bin/
+lib/
+lib64/
+
+# Python files
+pyvenv.cfg
