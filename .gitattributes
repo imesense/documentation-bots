@@ -17,12 +17,12 @@ LICENSE* text eol=lf encoding=utf-8
 *.yaml text eol=lf encoding=utf-8
 
 # JSON-based files
-*.json           text eol=crlf encoding=utf-8
-*.code-workspace text eol=crlf encoding=utf-8
+*.json           text eol=lf encoding=utf-8
+*.code-workspace text eol=lf encoding=utf-8
 
 # Docker files
-*.dockerignore text eol=crlf encoding=utf-8
-Dockerfile*    text eol=crlf encoding=utf-8
+*.dockerignore text eol=lf encoding=utf-8
+Dockerfile*    text eol=lf encoding=utf-8
 
 # CMake files
 CMakeLists.txt text eol=lf encoding=utf-8
