@@ -1,0 +1,76 @@
+# Enable top-most EditorConfig file
+root = true
+
+# Git configs
+[*.{gitattributes,gitignore}]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+
+# Markdown documents
+[*.md]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+
+# License texts
+[LICENSE*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+
+# YAML-based files
+[*.{yml,yaml}]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+
+# JSON-based files
+[*.{json,code-workspace}]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+
+# EditorConfig files
+[*.editorconfig]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+
+# Docker files
+[{*.dockerignore,Dockerfile*}]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+
+# CMake files
+[{CMakeLists.txt,*.cmake}]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+
+# C++ files
+[*.{cpp,cxx,cc,h,hpp,hxx}]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+
+# Bash scripts
+[*.sh]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+insert_final_newline = true

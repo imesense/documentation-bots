@@ -20,6 +20,9 @@ LICENSE* text eol=lf encoding=utf-8
 *.json           text eol=lf encoding=utf-8
 *.code-workspace text eol=lf encoding=utf-8
 
+# EditorConfig files
+*.editorconfig text eol=lf encoding=utf-8
+
 # Docker files
 *.dockerignore text eol=lf encoding=utf-8
 Dockerfile*    text eol=lf encoding=utf-8
