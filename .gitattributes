@@ -1,0 +1,40 @@
+# Global attributes for forcing line endings normalization of specific files
+
+* text=auto
+
+# Git configs
+*.gitattributes text eol=lf encoding=utf-8
+*.gitignore     text eol=lf encoding=utf-8
+
+# Markdown documents
+*.md text eol=lf encoding=utf-8
+
+# License texts
+LICENSE* text eol=lf encoding=utf-8
+
+# YAML-based files
+*.yml  text eol=lf encoding=utf-8
+*.yaml text eol=lf encoding=utf-8
+
+# JSON-based files
+*.json           text eol=crlf encoding=utf-8
+*.code-workspace text eol=crlf encoding=utf-8
+
+# Docker files
+*.dockerignore text eol=crlf encoding=utf-8
+Dockerfile*    text eol=crlf encoding=utf-8
+
+# CMake files
+CMakeLists.txt text eol=lf encoding=utf-8
+*.cmake        text eol=lf encoding=utf-8
+
+# C++ files
+*.cpp text eol=lf encoding=utf-8
+*.cxx text eol=lf encoding=utf-8
+*.cc  text eol=lf encoding=utf-8
+*.h   text eol=lf encoding=utf-8
+*.hpp text eol=lf encoding=utf-8
+*.hxx text eol=lf encoding=utf-8
+
+# Bash scripts
+*.sh text eol=lf encoding=utf-8
