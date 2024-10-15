@@ -3,7 +3,7 @@ services:
     dockerfile: src/Server/Dockerfile
 
   app_bot:
-    dockerfile: src/Draft Bot/Dockerfile
+    dockerfile: src/DraftBot/Dockerfile
 
   redis:
     image: redis:latest
