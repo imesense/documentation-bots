@@ -1,10 +1,10 @@
 services:
   backend:
     dockerfile: src/Server/Dockerfile
-  
+
   app_bot:
     dockerfile: src/Draft Bot/Dockerfile
-  
+
   redis:
     image: redis:latest
     restart: always
@@ -18,7 +18,7 @@ services:
       - REDIS_PORT=6379
       - REDIS_DATABASES=16
 
-    db:
+  db:
     image: postgres
     restart: always
     # set shared memory limit when using docker-compose
