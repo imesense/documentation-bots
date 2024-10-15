@@ -1,0 +1,21 @@
+# Global ignoring of different binaries and another temporary files
+
+# Build results
+**/build*
+
+# Git files
+**/.git
+**/*.gitattributes
+**/*.gitignore
+
+# Docker files
+**/*.dockerignore
+**/Dockerfile*
+
+# Visual Studio Code files
+**/*.vscode
+**/*.code-workspace
+
+# Documents
+**/*.md
+**/LICENSE*
