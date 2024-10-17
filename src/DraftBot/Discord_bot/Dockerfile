@@ -73,4 +73,4 @@ RUN apk --no-cache del \
     ninja
 
 # Set your application entry point
-CMD ["./build/draft_bot"]
+CMD ["./build/draft_bot_discord"]
