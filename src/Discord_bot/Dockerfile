@@ -22,7 +22,7 @@ RUN apk --no-cache add \
 # Clone and build DPP-cpp
 RUN if [ ! -d "DPP" ]; then \
     git clone https://github.com/brainboxdotcc/DPP.git && \
-    cd tgbot-cpp && \
+    cd DPP && \
     cmake -GNinja . && \
     ninja && \
     ninja install && \
