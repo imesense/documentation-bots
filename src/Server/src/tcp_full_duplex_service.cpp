@@ -1,7 +1,7 @@
 #include <userver/clients/dns/component.hpp>
 #include <userver/clients/http/component.hpp>
+#include <userver/components/common_server_component_list.hpp>
 #include <userver/components/component.hpp>
-#include <userver/components/minimal_server_component_list.hpp>
 #include <userver/components/statistics_storage.hpp>
 #include <userver/components/tcp_acceptor_base.hpp>
 #include <userver/concurrent/queue.hpp>
@@ -22,12 +22,12 @@ namespace samples::tcp::echo
     public:
         static constexpr std::string_view kName = "tcp-echo";
 
-    // Component is valid after construction and is able to accept requests
-    Echo(
-        const components::ComponentConfig& config,
-        const components::ComponentContext& context);
+        // Component is valid after construction and is able to accept requests
+        Echo(
+            const components::ComponentConfig& config,
+            const components::ComponentContext& context);
 
-    void ProcessSocket(engine::io::Socket&& sock) override;
+        void ProcessSocket(engine::io::Socket&& sock) override;
 
     private:
         Stats& stats_;
@@ -65,7 +65,7 @@ namespace samples::tcp::echo
     ) :
         TcpAcceptorBase(config, context),
         stats_(context.FindComponent<components::StatisticsStorage>()
-             .GetMetricsStorage()->GetMetric(kTcpEchoTag))
+            .GetMetricsStorage()->GetMetric(kTcpEchoTag))
     {
     }
 
@@ -115,20 +115,19 @@ namespace samples::tcp::echo
         tracing::Span span{fmt::format("sock_{}", sock_num)};
         span.AddTag("fd", std::to_string(sock.Fd()));
 
-        utils::FastScopeGuard guard{[this]() noexcept {
+        utils::FastScopeGuard guard{[this]() noexcept
+        {
             LOG_INFO() << "Closing socket";
             ++stats_.closed_sockets;
         }};
 
         auto queue = Queue::Create();
-        auto send_task = utils::Async("send",
-            DoSend, std::ref(sock), queue->GetConsumer());
+        auto send_task = utils::Async("send", DoSend, std::ref(sock), queue->GetConsumer());
         DoRecv(sock, queue->GetProducer(), stats_);
     }
 } // namespace samples::tcp::echo
 
-int main(int argc, const char* const argv[])
-{
+int main(int argc, const char* const argv[]) {
     const auto component_list = components::MinimalServerComponentList()
         .Append<server::handlers::ServerMonitor>()
         .Append<samples::tcp::echo::Echo>()
@@ -137,6 +136,5 @@ int main(int argc, const char* const argv[])
         .Append<components::TestsuiteSupport>()
         .Append<clients::dns::Component>()
         .Append<components::HttpClient>();
-
     return utils::DaemonMain(argc, argv, component_list);
 }
