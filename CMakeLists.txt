@@ -31,10 +31,15 @@ if(NOT userver_FOUND)
     endif()
 endif()
 
-add_executable(${PROJECT_NAME} "tcp_full_duplex_service.cpp") # TODO
+add_executable(${PROJECT_NAME} "tcp_full_duplex_service.cpp") # TODO Backend
 target_link_libraries(${PROJECT_NAME} userver::core)
 
-add_executable(${PROJECT_NAME} "bot.cc") # TODO
+add_executable(${PROJECT_NAME} "telegram_bot.cc") # TODO Telegram_Bot
 target_link_libraries(${PROJECT_NAME})
+
+add_executable(${PROJECT_NAME} "discord_bot.cc") # TODO Discrod_bot
+target_link_libraries(${PROJECT_NAME})
+
+add_subdirectory(src)
 
 userver_setup_environment()
