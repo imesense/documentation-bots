@@ -1,9 +1,21 @@
 services:
   backend:
-    dockerfile: src/Server/Dockerfile
+    container_name: backend
+    build:
+     context: ./src/Server
+     dockerfile: Dockerfile
 
-  app_bot:
-    dockerfile: src/DraftBot/Dockerfile
+  app_discrord_bot:
+    container_name: discrord_bot
+    build:
+      context: ./src/Discord_bot
+      dockerfile: Dockerfile
+
+  app_telegrant_bot:
+    container_name: telegram_bot
+    build:
+      context: ./src/Telegram_bot
+      dockerfile: Dockerfile
 
   redis:
     image: redis:latest
