@@ -12,12 +12,4 @@ include("cmake/LanguageOptions.cmake")
 include("cmake/OutputOptions.cmake")
 
 # Projects
-if(DOCBOTS_ENABLE_CPPSTD_DISCORDBOT)
-    add_subdirectory("src/CppStdDiscordBot")
-endif()
-if(DOCBOTS_ENABLE_CPPSTD_TELEGRAMBOT)
-    add_subdirectory("src/CppStdTelegramBot")
-endif()
-if(DOCBOTS_ENABLE_BOTS_SERVER)
-    add_subdirectory("src/BotsServer")
-endif()
+add_subdirectory("src")

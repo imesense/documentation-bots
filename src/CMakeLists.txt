@@ -1,3 +1,10 @@
-add_subdirectory(Discord_bot)
-add_subdirectory(Telegram_bot)
-add_subdirectory(Server)
+# Projects
+if(DOCBOTS_ENABLE_CPPSTD_DISCORDBOT)
+    add_subdirectory("src/CppStdDiscordBot")
+endif()
+if(DOCBOTS_ENABLE_CPPSTD_TELEGRAMBOT)
+    add_subdirectory("src/CppStdTelegramBot")
+endif()
+if(DOCBOTS_ENABLE_BOTS_SERVER)
+    add_subdirectory("src/BotsServer")
+endif()
