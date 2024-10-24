@@ -1,45 +1,19 @@
-cmake_minimum_required(VERSION 3.22.1)
+cmake_minimum_required(VERSION 3.15)
 
-project(draft_bot CXX)
+project(DocumentationBots CXX)
 
-set(CMAKE_CXX_STANDARD 23)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# Project options
+option(DOCBOTS_ENABLE_CPPSTDBOT "Enable CppStandardBot" OFF)
+option(DOCBOTS_ENABLE_SERVER "Enable CppStandardBot" OFF)
 
+# Common options
+include("cmake/LanguageOptions.cmake")
+include("cmake/OutputOptions.cmake")
 
-include(cmake/CompilerWarnings.cmake)
-myproject_set_project_warnings(bot_options ON "" "" "" "")
-
-include(cmake/StaticAnalyzers.cmake)
-myproject_enable_clang_tidy(bot_options ON)
-
-include(cmake/Sanitizers.cmake)
-myproject_enable_sanitizers(bot_options ON ON ON OFF OFF)
-
-find_package(userver COMPONENTS core QUIET)
-if(NOT userver_FOUND)  
-    # Fallback to subdirectory usage
-    # Compatibility mode: some systems don't support these features
-    set(USERVER_FEATURE_CRYPTOPP_BLAKE2 OFF CACHE BOOL "" FORCE)
-    set(USERVER_FEATURE_GRPC_CHANNELZ OFF CACHE BOOL "" FORCE)
-    set(USERVER_FEATURE_REDIS_HI_MALLOC ON CACHE BOOL "" FORCE)
-
-    if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/third_party/userver)
-        message(STATUS "Using userver framework from third_party/userver")
-        add_subdirectory(third_party/userver)
-    else()
-        message(FATAL_ERROR "Either install the userver or provide a path to it")
-    endif()
+# Projects
+if(DOCBOTS_ENABLE_CPPSTDBOT)
+    add_subdirectory("src/CppStandardBot")
 endif()
-
-add_executable(${PROJECT_NAME} "tcp_full_duplex_service.cpp") # TODO Backend
-target_link_libraries(${PROJECT_NAME} userver::core)
-
-add_executable(${PROJECT_NAME} "telegram_bot.cc") # TODO Telegram_Bot
-target_link_libraries(${PROJECT_NAME})
-
-add_executable(${PROJECT_NAME} "discord_bot.cc") # TODO Discrod_bot
-target_link_libraries(${PROJECT_NAME})
-
-add_subdirectory(src)
-
-userver_setup_environment()
+if(DOCBOTS_ENABLE_SERVER)
+    add_subdirectory("src/Server")
+endif()
