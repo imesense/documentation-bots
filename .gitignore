@@ -14,3 +14,5 @@ lib64/
 
 # Python files
 pyvenv.cfg
+.env
+.vscode/settings.json
