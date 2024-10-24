@@ -1,8 +1,4 @@
-# Получите список исходных файлов в module
-file(GLOB MODULE_SOURCES src/*.cpp)
-
-# Создайте библиотеку из исходных файлов
-#add_library(module_lib ${MODULE_SOURCES})
-
-# Укажите пути к заголовочным файлам из module
-#target_include_directories(module_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+find_package(TgBot REQUIRED)
+find_package(Boost COMPONENTS system)
+add_executable(telegram_bot_app src/bot.cc)
+target_link_libraries(telegram_bot_app TgBot::TgBot)

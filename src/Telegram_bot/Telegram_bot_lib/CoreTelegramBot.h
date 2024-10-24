@@ -3,9 +3,9 @@
 
 #include <tgbot/tgbot.h>
 
-#include "BaseCommand.h"
+#include "BaseCommandTGBot.h"
 
-extern BaseCommand;
+extern BaseCommandTGBot baseCommandTGBot;
 
 class CoreTelegramBot
 {

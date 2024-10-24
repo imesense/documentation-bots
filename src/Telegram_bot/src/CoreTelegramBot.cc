@@ -1,6 +1,6 @@
-#include "Core.h"
+#include "CoreTelegramBot.h"
 
-void Core::Start()
+void CoreTelegramBot::start()
 {
     try
     {
